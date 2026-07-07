@@ -8,50 +8,11 @@ window.initHeader = () => {
     const navbar = document.querySelector('.custom-header');
     if (!navbar) return;
 
-<<<<<<< HEAD
-    // Đo chiều cao thực của top-header để dùng cho CSS variable
-    const topHeader = document.querySelector('.top-header');
-    const updateTopHeaderHeight = () => {
-        if (topHeader && getComputedStyle(topHeader).display !== 'none') {
-            const h = topHeader.offsetHeight;
-            document.documentElement.style.setProperty('--top-header-height', h + 'px');
-        } else {
-            document.documentElement.style.setProperty('--top-header-height', '0px');
-        }
-    };
-    updateTopHeaderHeight();
-    window.addEventListener('resize', updateTopHeaderHeight);
-
-    const TOPBAR_HIDE_THRESHOLD = topHeader ? (topHeader.offsetHeight || 36) : 36;
-
-    const handleHeaderScroll = () => {
-        const scrollY = window.scrollY;
-
-        if (topHeader && getComputedStyle(topHeader).display !== 'none') {
-            if (scrollY > TOPBAR_HIDE_THRESHOLD) {
-                // Ẩn top-header: trượt lên trên
-                topHeader.classList.add('top-header-hidden');
-                // custom-header sẽ tự chuyển top: 0 qua .navbar-scrolled
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                // Hiện lại top-header
-                topHeader.classList.remove('top-header-hidden');
-                navbar.classList.remove('navbar-scrolled');
-            }
-        } else {
-            // Fallback nếu không có top-header (mobile/tablet)
-            if (scrollY > 10) {
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                navbar.classList.remove('navbar-scrolled');
-            }
-=======
     const handleHeaderScroll = () => {
         if (window.scrollY > 36) {
             navbar.classList.add('navbar-scrolled');
         } else {
             navbar.classList.remove('navbar-scrolled');
->>>>>>> 59a5e6f64da6c8eb44454bf22a5574b208c2f2b3
         }
     };
 

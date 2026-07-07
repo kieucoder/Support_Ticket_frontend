@@ -227,13 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. CLIENT MOBILE DRAWER EVENTS BINDING
     function bindMobileDrawerEvents() {
-<<<<<<< HEAD
         // Guard: prevent double-binding when called multiple times (e.g. from loadComponent callback)
         if (window._drawerEventsBound) return;
         window._drawerEventsBound = true;
 
-=======
->>>>>>> 59a5e6f64da6c8eb44454bf22a5574b208c2f2b3
         // Elements are bound via event delegation to support dynamic header loading
         document.addEventListener('click', (e) => {
             const menuToggle = e.target.closest('#menuToggle');
@@ -255,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 drawer.classList.remove('open');
                 if (overlay) overlay.classList.remove('open');
                 document.body.classList.remove('drawer-open');
-<<<<<<< HEAD
                 // Reset all open dropdowns when drawer closes
                 document.querySelectorAll('.drawer-dropdown-menu-custom.show').forEach(menu => {
                     menu.classList.remove('show');
@@ -302,27 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     dropdownMenu.classList.add('show');
                     if (parentItem) parentItem.classList.add('drawer-dropdown-open');
                     if (chevron) chevron.style.transform = 'rotate(180deg)';
-=======
-            }
-        });
-
-        // Mobile drawer services dropdown toggle accordion interaction
-        document.addEventListener('click', (e) => {
-            const serviceToggle = e.target.closest('#mobileLinkServices');
-            if (serviceToggle) {
-                e.preventDefault();
-                const dropdownMenu = serviceToggle.nextElementSibling;
-                const chevron = serviceToggle.querySelector('i');
-                if (dropdownMenu && dropdownMenu.classList.contains('drawer-dropdown-menu-custom')) {
-                    const isOpen = dropdownMenu.classList.contains('show');
-                    if (isOpen) {
-                        dropdownMenu.classList.remove('show');
-                        if (chevron) chevron.style.transform = 'rotate(0deg)';
-                    } else {
-                        dropdownMenu.classList.add('show');
-                        if (chevron) chevron.style.transform = 'rotate(180deg)';
-                    }
->>>>>>> 59a5e6f64da6c8eb44454bf22a5574b208c2f2b3
                 }
             }
         });

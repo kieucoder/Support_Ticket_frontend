@@ -297,6 +297,7 @@ function loadDashboardStats() {
     animateCounter('count-appointments', appointmentsApproved);
     animateCounter('count-services', countServices);
     animateCounter('count-categories', countCategories);
+    animateCounter('count-chats', 0);
 }
 
 function animateCounter(id, targetVal) {
